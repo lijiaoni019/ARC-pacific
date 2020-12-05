@@ -1,0 +1,22 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/landing/landing",
+    "pages/user/user"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "阿尔科报餐程序",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+
+  "plugins": {
+    "sdkPlugin": {
+      "version": "3.3.0",
+      "provider": "wxc6b86e382a1e3294"
+     }
+ }
+}

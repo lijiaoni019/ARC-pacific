@@ -1,0 +1,10 @@
+<!--pages/landing/landing.wxml-->
+<view class="user_page" >
+    <image src="https://cloud-minapp-36449.cloud.ifanrusercontent.com/1k1MAKa16rZgvAXO.jpg" />
+    <form catchsubmit="formSubmit">
+    <view class="login_container">
+    <input name="password"  class="input_box" placeholder="请输入登录密码"/>
+    <button form-type="submit" type="primary"  >登录</button>
+    </view>
+    </form>
+     </view> 

@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<import src="../template-dialog/dialog.wxml"/>
+<template is="dialog" data="{{qdDialog:qdDialog}}"></template>
+
+<view class="user_page" >
+    <image src="https://cloud-minapp-36449.cloud.ifanrusercontent.com/1k1MAKa16rZgvAXO.jpg" />
+    <button  bindtap="navigateToUserPage" style="margin: 16rpx auto; background-color: #07C160" type="primary" >用户页面</button>
+     </view> 
+    
+  
+
+
+
+<view class="container">
+
+<view>点击选择以下就餐日期：</view>
+<view data-option="{{item.datestring}}" data-index="{{item.index}}" bindtap="pickDate" class="card {{item.active? 'card-active': ''}}"  wx:for="{{dateOption}}">
+<view>{{item.datestring}}</view>
+<view wx:if="{{item.active}}">已选择</view>
+
+</view>
+</view>
+
+<view class="submit_container">
+<button style="background-color:#999; color: white" bindtap="dateReset">重置</button>
+<button type="primary" bindtap="dateSubmit">确认提交</button>
+
+
+</view>

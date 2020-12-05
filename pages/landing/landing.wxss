@@ -1,0 +1,35 @@
+/* pages/landing/landing.wxss */
+
+.user_page{
+  display: flex; 
+  flex-direction: column; 
+  padding-top: 200rpx ;
+  padding-bottom: 24rpx; 
+  align-items: center; 
+  background: white;
+  box-shadow: 0 0 16px rgba(0,0,0,0.1);
+  position:sticky;
+  top: 0;
+  
+  }
+
+  .user_page image{
+    border-radius:50%;
+    height:200rpx; 
+    width:200rpx;
+    margin-bottom: 16rpx;
+  }
+
+  .input_box{
+    border: 1px solid grey;
+    padding: 16rpx 8rpx
+  }
+
+  .login_container{
+    display: flex;
+    align-items: center;
+  }
+
+  .login_container button{
+    width: 150rpx !important;
+  }
