@@ -44,7 +44,9 @@ padding-bottom: 150rpx;
 }
 
 .card-active{
-  border: 1px solid red;
+  
+  background-color: #07C160;
+  color:white
 }
 
 .submit_container{

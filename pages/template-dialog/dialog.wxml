@@ -19,7 +19,7 @@
       <view class="qd-dialog__footer {{ qdDialog.buttonsShowVertical ? 'qd-dialog__footer--vertical' : 'qd-dialog__footer--horizon' }}">
       <view style="display: flex"> 
       <button style="background-color: #888; color: white" catchtap="closeDialog">取消</button>
-      <button type="primary">确认</button>
+      <button type="primary" bindtap="pushDatatoBaas">确认</button>
       </view>
 
 

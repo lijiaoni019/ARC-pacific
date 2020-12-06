@@ -60,6 +60,13 @@
 					"id": -1,
 					"name": "landing",
 					"pathName": "pages/landing/landing",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "user",
+					"pathName": "pages/user/user",
 					"scene": null
 				}
 			]

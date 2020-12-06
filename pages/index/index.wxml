@@ -2,7 +2,7 @@
 <import src="../template-dialog/dialog.wxml"/>
 <template is="dialog" data="{{qdDialog:qdDialog}}"></template>
 
-<view class="user_page" >
+    <view class="user_page" >
     <image src="https://cloud-minapp-36449.cloud.ifanrusercontent.com/1k1MAKa16rZgvAXO.jpg" />
     <button  bindtap="navigateToUserPage" style="margin: 16rpx auto; background-color: #07C160" type="primary" >用户页面</button>
      </view> 

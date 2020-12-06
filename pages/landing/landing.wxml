@@ -1,10 +1,23 @@
 <!--pages/landing/landing.wxml-->
 <view class="user_page" >
     <image src="https://cloud-minapp-36449.cloud.ifanrusercontent.com/1k1MAKa16rZgvAXO.jpg" />
+     </view> 
+
+    <view wx:if ="{{!member}}" class="info_container" >
     <form catchsubmit="formSubmit">
     <view class="login_container">
     <input name="password"  class="input_box" placeholder="请输入登录密码"/>
     <button form-type="submit" type="primary"  >登录</button>
     </view>
     </form>
-     </view> 
+      </view> 
+
+     <view wx:else class="info_container" >
+
+    <view class="confirmation_container" >
+    <view style ="margin-bottom: 48rpx">用户名：{{member_name}}</view>
+    <button style ="margin-bottom: 24rpx" bindtap="navigateToUserPage" type="primary"  >确认登录</button>
+    <button bindtap="relogin" style ="background-color: grey; color: white" >重新登录</button>
+    </view>
+
+      </view> 

@@ -51,7 +51,7 @@ pickDate: function (e){
  console.log(pickedOption)
 },
 
-dateoption(){
+loadRecord: function(record_date){
   let dateOption=[];
   let date = new Date();
   let time = date.toString().split(" ")[4].split(":")[0]
@@ -65,13 +65,27 @@ dateoption(){
      week = this.getweek(week) 
     let month = datestring[1]
     month=this.getmonth(month)  
-    datestring = datestring[3]+"年"+month+datestring[2]+"日"+","+week
+    datestring = datestring[3]+"年"+month+datestring[2]+"日"+"("+week+")"
     if(datestring.indexOf("星期日")==-1){
       let length = dateOption.length
       dateOption.push({datestring,active:false,index:length})
     }
 }
   this.setData({dateOption})
+  this.updateRecord(dateOption,record_date)
+},
+
+updateRecord: function (dateOption,record_date){
+
+  for (let item of dateOption){
+    let datestring = item.datestring
+    if (record_date.indexOf(datestring)!=-1){
+      item.active = true
+    }
+  }
+
+this.setData({dateOption})
+
 },
 
 getweek: function(week){
@@ -140,9 +154,18 @@ dateSubmit: function(){
     let date = item.datestring
     pickedDate.push(date)
   }
+  if(pickedDate.length ==0) {
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      title:"请选择报餐日期",
+      showCancel: false,
+    })
+    return;
+  }
   
   console.log(pickedDate)
   this.setData({pickedDate})
+  wx.setStorageSync('pickedDate', pickedDate)
   this.openDialog()
 },
 
@@ -155,6 +178,49 @@ dateReset: function(){
 
 },
 
+pushDatatoBaas:function(e){
+  let member_name = wx.getStorageSync('member')
+  let record_date = wx.getStorageSync('record_date')
+  let pickedDate = this.data.pickedDate;
+  if(!record_date){let User_record = new wx.BaaS.TableObject("user_record")
+  let user_record = User_record.create()
+  let record = {user_name: member_name, record_date:pickedDate}
+  user_record.set(record).save().then(res => {
+    wx.redirectTo({
+      url: '../user/user',
+    })
+    wx.showToast({
+      title: '报餐成功！',
+    })
+  }, err => {
+  })}else{
+    
+  }
+  
+    
+},
+
+
+// pushDatatoBaas:function(e){
+//   let member_name = wx.getStorageSync('member')
+//   let pickedDate = this.data.pickedDate;
+//   let User_record = new wx.BaaS.TableObject("user_record")
+//    for (let item of pickedDate){
+//     let user_record = User_record.create()
+//     let record = {user_name: member_name, record_date:item}
+//     user_record.set(record).save().then(res => {
+//       wx.redirectTo({
+//         url: '../user/user',
+//       })
+//       wx.showToast({
+//         title: '报餐成功！',
+//       })
+//     }, err => {
+//     })
+    
+//   } 
+// },
+
 navigateToUserPage: function (){
   wx.navigateTo({
     url: '../user/user',
@@ -162,8 +228,10 @@ navigateToUserPage: function (){
 },
 
   onLoad:function(){
-    this.dateoption()
-  
+    let record_date = wx.getStorageSync('record_date')
+    this.setData({record_date})
+    this.loadRecord(record_date)
+    
   
   }
   

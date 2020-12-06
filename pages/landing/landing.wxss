@@ -8,9 +8,24 @@
   align-items: center; 
   background: white;
   box-shadow: 0 0 16px rgba(0,0,0,0.1);
-  position:sticky;
-  top: 0;
   
+  }
+  .info_container{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 24rpx;
+
+    
+    }
+
+  .confirmation_container{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 24rpx;
+   
+
   }
 
   .user_page image{

@@ -1,2 +1,28 @@
 <!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+    <view class="user_page" >
+    <view class="user_info">
+    <image src="https://cloud-minapp-36449.cloud.ifanrusercontent.com/1k1MAKa16rZgvAXO.jpg" />
+    <view>用户名：{{member_name}}</view>
+    </view>
+     </view> 
+
+  <view class="tab-container">
+    <view class="tab subheader {{active == 0 ? 'active' : ''}}" data-index="0" bindtap="switchTab">已报餐</view>
+    <view class="tab subheader {{active == 1 ? 'active' : ''}}" data-index="1" bindtap="switchTab">本月报餐</view>
+    <!-- <view class="tab subheader {{active == 2 ? 'active' : ''}}" data-index="2" bindtap="switchTab">Additional</view> -->
+  </view>
+
+  <view class="date_record" wx:if="{{active==0}}" wx:for = "{{upcomingMeal}}">
+  <view>{{item}};</view>
+  </view>
+  
+
+  <view  wx:if="{{active==1}}"  class="date_record" wx:for = "{{thisMonthRecord}}">
+  <view >{{item}};</view>
+  </view>
+
+<view class="btn_container">
+<button type="primary" bindtap="navigateToindex">取消及添加报餐</button>
+</view>
+
+
